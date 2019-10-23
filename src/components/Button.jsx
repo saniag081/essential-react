@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Button = props =>{
-    const { text } = props;
+                //React.component
+class Button extends Component{
+    state = {
+        count: 0,
+    }
 
-    return(
-        <div>
-            <button type="button">{props.text}</button>
-            <button type="button">{text}</button>
-        </div>
-    )
+    handleClick = () =>{
+        //actualizar estado
+        this.setState({
+            count: this.state.count + 1
+        })
+    }
+
+    render(){
+        const { count } = this.state;
+        return(
+            <div>
+                <h1>Manzanas: {count}</h1>
+                <button type="button" onClick={this.handleClick}>
+                    Agregar
+                </button>
+            </div>
+        );
+    };
 };
+
 
 export default Button;
